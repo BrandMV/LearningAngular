@@ -1,0 +1,15 @@
+<div class="container">
+    <div class="row">
+      <div class="col">
+        <h1>People List</h1>
+        <button class="btn btn-success" [disabled]='disable' (click)='addPerson()' >Add Person</button>
+        <p>{{message}}</p>
+        <app-person></app-person>
+
+        <label>People title</label>
+        <!-- <input type="text" class="form-control" (input)='modifyTitle($event)' /> $event para capturar informacion -->
+        <input type="text" class="form-control"  [(ngModel)]="title" />
+        {{title}}
+      </div>
+    </div>
+</div>
