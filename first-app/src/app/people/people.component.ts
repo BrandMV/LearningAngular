@@ -13,9 +13,11 @@ import { Component } from "@angular/core";
 
 export class PeopleComponent{
     disable: boolean = false;
-    message: string = 'Havent added a person'
-    title: string = 'test'
+    message: string = ''
+    title: string = 'Graduate'
+    show: boolean = false
     addPerson(): void{
+        this.show = true
         this.message = 'Person added successfully'
     }
 

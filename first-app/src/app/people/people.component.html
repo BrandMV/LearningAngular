@@ -3,7 +3,10 @@
       <div class="col">
         <h1>People List</h1>
         <button class="btn btn-success" [disabled]='disable' (click)='addPerson()' >Add Person</button>
-        <p>{{message}}</p>
+        <p *ngIf="show; else noPerson">{{message}} with the title of {{title}}</p>
+        <ng-template #noPerson>
+          <p>Any Person has been added</p>
+        </ng-template>
         <app-person></app-person>
 
         <label>People title</label>
