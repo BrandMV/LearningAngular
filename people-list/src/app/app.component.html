@@ -3,33 +3,7 @@
     <h3>{{ title }}</h3>
   </div>
   <hr />
-  <form class="form-row">
-    <div class="form-group col-md-2">
-      <label for="name" class="sr-only">Name</label>
-      <input
-        type="text"
-        name="name"
-        id="name"
-        placeholder="Name"
-        class="form-control"
-        [(ngModel)]="nameInput"
-      />
-      <label for="lastName" class="sr-only">Last Name</label>
-      <input
-        type="text"
-        name="lastName"
-        id="lastName"
-        placeholder="LastName"
-        class="form-control"
-        [(ngModel)]="lastNameInput"
-      />
-    </div>
-    <div class="col">
-      <button type="submit" class="btn btn-success" (click)="addPerson()">
-        Add
-      </button>
-    </div>
-  </form>
+  <app-form (createdPerson)="addedPerson($event)" ></app-form>
   <hr />
   <app-person
     *ngFor="let person of people; let i = index"

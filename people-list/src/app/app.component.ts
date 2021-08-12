@@ -10,11 +10,7 @@ import { Person } from './Person.model';
 export class AppComponent {
   title = 'PEOPLE LIST';
   people: Person[] = [new Person('Brandon', 'Meza'), new Person('Lizeth', 'Rodriguez'), new Person('David', 'Meza')]
-  nameInput: string = ''
-  lastNameInput: string = ''
-
-  addPerson(): void{
-    let person = new Person(this.nameInput, this.lastNameInput)
+  addedPerson(person: Person): void {
     this.people.push(person)
   }
 }
