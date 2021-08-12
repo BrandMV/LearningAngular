@@ -1,24 +1,7 @@
 <div class="container">
   <h1>{{ title }}</h1>
-  <form>
-    <div class="form-control">
-      <label>Number A</label>
-      <input type="number" step="any" [(ngModel)]="numberA" name="numberA" />
-    </div>
-    
-    <div class="form-control">
-      <label>Number B</label>
-      <input type="number" step="any" [(ngModel)]="numberB" name="numberB" />
-    </div>
-
-    <div class="buttons">
-      <button (click)="sum()" type="submit" class="btn">+</button>
-      <button (click)="less()" type="submit" class="btn">-</button>
-      <button (click)="divide()" type="submit" class="btn">/</button>
-      <button (click)="mult()" type="submit" class="btn">X</button>
-    </div>
-  </form>
-  <div class="result">
-    <p>RESULTADO: {{res}}</p>
-  </div>
+  <app-form (resultOp)='result($event)'></app-form>
+  <app-result
+    [res]='res'
+  ></app-result>
 </div>

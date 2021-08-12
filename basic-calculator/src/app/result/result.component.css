@@ -1,0 +1,10 @@
+.result{
+    max-width: 100vw;
+    text-align: center;
+    font-size: 1.7rem;
+    letter-spacing: .3rem;
+    background: #FF96AD;
+    border-top-right-radius: 30%;
+    border-bottom-left-radius: 30%;
+    padding: .7rem;
+}
