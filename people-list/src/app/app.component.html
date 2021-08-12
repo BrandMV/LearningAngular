@@ -1,10 +1,8 @@
-<div class="container">
-  <div class="col">
-    <h3>{{ title }}</h3>
-  </div>
-  <hr />
-  <app-form (createdPerson)="addedPerson($event)" ></app-form>
-  <hr />
+<div class="box" id="heading">
+    <h1>{{ title }}</h1>
+</div>
+
+<div class="box">
   <app-person
     *ngFor="let person of people; let i = index"
     [person]="person"
@@ -12,4 +10,8 @@
   >
     <!-- [] = variable del hijo -->
   </app-person>
+
+</div>
+<div class="box">
+  <app-form></app-form>  
 </div>

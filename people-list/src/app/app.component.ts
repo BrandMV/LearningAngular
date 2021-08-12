@@ -1,4 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { LoggingService } from './LoggingService.service';
+import { PeopleService } from './people.service';
 import { Person } from './Person.model';
 
 
@@ -7,10 +9,14 @@ import { Person } from './Person.model';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent {
+export class AppComponent implements OnInit{
+
   title = 'PEOPLE LIST';
-  people: Person[] = [new Person('Brandon', 'Meza'), new Person('Lizeth', 'Rodriguez'), new Person('David', 'Meza')]
-  addedPerson(person: Person): void {
-    this.people.push(person)
+  people: Person[] = []
+
+  constructor(private logginService: LoggingService, private peopleService: PeopleService){}
+  //ngOnInit after consteructor
+  ngOnInit(): void {
+    this.people = this.peopleService.people
   }
 }
