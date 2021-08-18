@@ -1,0 +1,23 @@
+<div class="cabecero">
+  <div class="presupuesto">
+    <div class="presupuesto_titulo">Available Budget</div>
+
+    <div class="presupuesto_valor">{{totalBudget}}</div>
+
+    <div class="presupuesto_ingreso limpiarEstilos">
+      <div class="presupuesto_ingreso--texto">Incomes</div>
+      <div class="right">
+        <div class="presupuesto_ingreso--valor">{{totalIncome}}</div>
+        <div class="presupuesto_ingreso--porcentaje">&nbsp;</div>
+      </div>
+    </div>
+
+    <div class="presupuesto_egreso limpiarEstilos">
+      <div class="presupuesto_egreso--text">Expenses</div>
+      <div class="right limpiarEstilos">
+        <div class="presupuesto_egreso--valor">- {{totalExpense}}</div>
+        <div class="presupuesto_egreso--porcentaje">{{totalPercentage}}%</div>
+      </div>
+    </div>
+  </div>
+</div>
