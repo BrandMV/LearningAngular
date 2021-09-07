@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Incomes } from './incomes.model';
+import { IncomesService } from './incomes.service';
 
 @Component({
   selector: 'app-incomes',
@@ -7,9 +9,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class IncomesComponent implements OnInit {
 
-  constructor() { }
+  incomes: Incomes[] = []
+
+  constructor(private incomeService: IncomesService) { }
 
   ngOnInit(): void {
+    this.incomes = this.incomeService.incomes
+  }
+
+  deleteRegister(income: Incomes): void{
+    this.incomeService.delete(income)
   }
 
 }

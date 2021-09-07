@@ -9,5 +9,7 @@
   
   <div class="contenedor limpiarEstilos">
     <app-incomes></app-incomes>
-    <app-expenses></app-expenses>
+    <app-expenses
+      [totalIncome]="getTotalIncomes()"
+    ></app-expenses>
   </div>
