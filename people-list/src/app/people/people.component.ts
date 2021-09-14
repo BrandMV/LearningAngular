@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { LoggingService } from '../LoggingService.service';
+import { Router } from '@angular/router';
 import { PeopleService } from '../people.service';
 import { Person } from '../Person.model';
 
@@ -12,9 +12,24 @@ export class PeopleComponent implements OnInit {
 
   people: Person[] = []
 
-  constructor(private logginService: LoggingService, private peopleService: PeopleService){}
+  constructor(private peopleService: PeopleService, private router: Router){
+    this.people = []
+  }
   //ngOnInit after consteructor
   ngOnInit(): void {
-    this.people = this.peopleService.people
+    this.peopleService.getPeople()
+    .subscribe(
+      (people: any) => {
+        this.people = people
+        this.peopleService.setPeople(people)
+      },
+      
+    )
   }
+
+  add():void{
+    this.router.navigate(['people/add'])
+  }
+
+  
 }

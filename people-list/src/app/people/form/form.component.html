@@ -1,27 +1,30 @@
-<form class="item">
-      <!-- <input
-        type="text"
-        name="name"
-        id="name"
-        placeholder="Name"
-        class="form-control"
-        [(ngModel)]="nameInput"
-      />
-      <label for="lastName" class="sr-only">Last Name</label>
-      <input
-        type="text"
-        name="lastName"
-        id="lastName"
-        placeholder="LastName"
-        class="form-control"
-        [(ngModel)]="lastNameInput"
-      /> -->
-      <input
+<div class="box">
+  <form class="item" #f="ngForm" (ngSubmit)="f.form.valid && onSavePerson()">
+    <!-- <input
+          type="text"
+          name="name"
+          id="name"
+          placeholder="Name"
+          class="form-control"
+          [(ngModel)]="nameInput"
+        />
+        <label for="lastName" class="sr-only">Last Name</label>
+        <input
+          type="text"
+          name="lastName"
+          id="lastName"
+          placeholder="LastName"
+          class="form-control"
+          [(ngModel)]="lastNameInput"
+        /> -->
+    <input
       type="text"
       name="name"
+      F
       id="name"
       placeholder="Name"
       [(ngModel)]="nameInput"
+      required
     />
     <input
       type="text"
@@ -29,8 +32,9 @@
       id="lastName"
       placeholder="LastName"
       [(ngModel)]="lastNameInput"
+      required
     />
-    <button type="submit" (click)="addPerson()">
-    +
-    </button>
+    <button type="submit" style="cursor: pointer">+</button>
+    <button  *ngIf="index != null" type="submit" style="cursor: pointer" class="buttonRed" (click)="deletePerson()">-</button>
   </form>
+</div>
