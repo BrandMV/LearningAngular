@@ -11,6 +11,10 @@ html {
     color: #fff;
     padding: 10px;
   }
+
+  .centrado{
+    text-align: center;
+  }
   
   .box {
     max-width: 400px;

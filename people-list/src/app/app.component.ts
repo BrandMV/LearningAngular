@@ -1,9 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { LoggingService } from './LoggingService.service';
-import { PeopleService } from './people.service';
-import { Person } from './Person.model';
-
-
+import * as firebase from 'firebase'
+import { LoginService } from './login/login.service';
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -12,11 +9,22 @@ import { Person } from './Person.model';
 export class AppComponent implements OnInit{
 
   title = 'PEOPLE LIST';
-  people: Person[] = []
 
-  constructor(private logginService: LoggingService, private peopleService: PeopleService){}
+  constructor(private loginService:LoginService){}
   //ngOnInit after consteructor
   ngOnInit(): void {
-    this.people = this.peopleService.people
+    firebase.initializeApp({
+      apiKey: "AIzaSyDGmaSPh5tn7QHoKwzPuZyeGZ0V1nLvmmE",
+      authDomain: "people-list-cfbff.firebaseapp.com",
+    })
+
+  }
+
+  isAuth(): boolean{
+    return this.loginService.isAuth()
+  }
+
+  logout(): void{
+    this.loginService.logout()
   }
 }

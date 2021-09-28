@@ -43,5 +43,13 @@ export class PeopleService{
     
     deletePerson(index: number): void{
         this.people.splice(index, 1);
+        this.dataService.deletePerson(index)
+        //saving array again to regenerate index
+        this.modifyPeople()
+    }
+
+    modifyPeople(): void{
+        if(this.people != null)
+            this.dataService.savePeople(this.people)
     }
 }
