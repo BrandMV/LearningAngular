@@ -6,14 +6,15 @@ import { LoginComponent } from "./components/login/login.component";
 import { NotFoundComponent } from "./components/not-found/not-found.component";
 import { SignupComponent } from "./components/signup/signup.component";
 import { TableComponent } from "./components/table/table.component";
+import { AuthGuard } from "./gards/auth.guard";
 
 
 const routes: Routes = [
-    { path: '', component: TableComponent },
+    { path: '', component: TableComponent, canActivate: [AuthGuard] },
     { path: 'login', component: LoginComponent },
     { path: 'signup', component: SignupComponent },
-    { path: 'config', component: ConfigComponent },
-    { path: 'client/edit/:id', component: EditClientComponent },
+    { path: 'config', component: ConfigComponent, canActivate: [AuthGuard] },
+    { path: 'client/edit/:id', component: EditClientComponent, canActivate: [AuthGuard] },
     { path: '**', component: NotFoundComponent },
 ]
 
