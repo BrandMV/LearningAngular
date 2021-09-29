@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { ConfigService } from 'src/app/services/config.service';
 import { LoginService } from 'src/app/services/login.service';
 
 @Component({
@@ -10,8 +11,9 @@ import { LoginService } from 'src/app/services/login.service';
 export class HeaderComponent implements OnInit {
   isLogged: boolean;
   loggedInUser: string | null;
+  allowRegister: boolean
 
-  constructor(private loginService: LoginService, private router: Router) {}
+  constructor(private loginService: LoginService, private router: Router, private configService: ConfigService) {}
 
   ngOnInit(): void {
     this.loginService.getAuth().subscribe(auth => {
@@ -20,6 +22,13 @@ export class HeaderComponent implements OnInit {
         this.loggedInUser = auth.email
       }else this.isLogged = false
     })
+
+    this.configService.getConfig().subscribe(
+      config => {
+        //@ts-ignore
+        this.allowRegister = config.allowRegister
+      }
+    )
   }
 
   logout(): void{

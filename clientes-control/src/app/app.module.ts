@@ -21,6 +21,8 @@ import { AppRoutingModule } from './app-routing.module';
 import { ClientService } from './services/client.service';
 import { LoginService } from './services/login.service';
 import { AuthGuard } from './gards/auth.guard';
+import { ConfigService } from './services/config.service';
+import { RegisterGuard } from './gards/register.guard';
 
 @NgModule({
   declarations: [
@@ -44,7 +46,7 @@ import { AuthGuard } from './gards/auth.guard';
     FormsModule,
     FlashMessagesModule.forRoot()
   ],
-  providers: [ClientService, LoginService, AuthGuard],
+  providers: [ClientService, LoginService, AuthGuard, ConfigService, RegisterGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
